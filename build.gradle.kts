@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -13,6 +15,9 @@ repositories {
 }
 
 dependencies {
+    implementation("io.kotest:kotest-property:5.5.0")
+    implementation("io.kotest:kotest-assertions-core:5.5.0")
+    implementation("io.kotest:kotest-runner-junit5:5.5.0")
     testImplementation(kotlin("test"))
 }
 
