@@ -9,7 +9,7 @@ class Logger private constructor(private val name: String) {
 
     /** Logs a message at the DEBUG level.  */
     fun debug(message: () -> String) =
-        outputStream.write("[${Thread.currentThread().name}] DEBUG $name, ${message()}")
+        outputStream.write("[${Thread.currentThread().name}] DEBUG $name - ${message()}")
 
     override fun toString() = "Logger { name: '$name' }"
 
