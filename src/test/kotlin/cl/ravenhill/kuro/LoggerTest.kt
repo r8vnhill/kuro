@@ -1,5 +1,6 @@
 package cl.ravenhill.kuro
 
+import cl.ravenhill.kuro.logging.Logger
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -7,6 +8,9 @@ import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.kotest.property.assume
 import io.kotest.property.checkAll
 
+/**
+ * Test specification for [Logger].
+ */
 class LoggerTest : StringSpec({
     beforeEach {
         Logger.clearActiveLoggers()

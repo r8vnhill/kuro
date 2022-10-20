@@ -1,4 +1,4 @@
-package cl.ravenhill.kuro
+package cl.ravenhill.kuro.channels
 
 /** Channel where messages can be written to.   */
 interface OutputChannel {
@@ -6,7 +6,8 @@ interface OutputChannel {
     fun write(message: String)
 }
 
-class CompositeOutputChannel(private vararg val outputStreams: OutputChannel) : OutputChannel {
+class CompositeOutputChannel(private vararg val outputStreams: OutputChannel) :
+        OutputChannel {
     override fun write(message: String) = outputStreams.forEach { it.write(message) }
 }
 
@@ -24,7 +25,7 @@ class BufferedOutputChannel : OutputChannel {
     }
 }
 
-class StdoutOutputStream : OutputChannel {
+class StdoutChannel : OutputChannel {
     override fun write(message: String) {
         print(message)
     }
