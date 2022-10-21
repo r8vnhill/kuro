@@ -4,31 +4,25 @@ import cl.ravenhill.kuro.logging.Level
 import io.kotest.core.spec.style.WordSpec
 
 
-class TraceSpec : WordSpec({
-
-    "A Trace level with a logging method" should {
+class InfoSpec : WordSpec({
+    "A Info level with a logging method" should {
         "log a message for the trace method" {
-            checkLevelMessage(Level.Trace()::trace)
+            checkNoLevelMessage(Level.Info()::trace)
         }
-
         "log a message for the debug method" {
-            checkLevelMessage(Level.Trace()::debug)
+            checkNoLevelMessage(Level.Info()::debug)
         }
-
         "log a message for the info method" {
-            checkLevelMessage(Level.Trace()::info)
+            checkLevelMessage(Level.Info()::info)
         }
-
         "log a message for the warn method" {
-            checkLevelMessage(Level.Trace()::warn)
+            checkLevelMessage(Level.Info()::warn)
         }
-
         "log a message for the error method" {
-            checkLevelMessage(Level.Trace()::error)
+            checkLevelMessage(Level.Info()::error)
         }
-
         "log a message for the fatal method" {
-            checkLevelMessage(Level.Trace()::fatal)
+            checkLevelMessage(Level.Info()::fatal)
         }
     }
 })

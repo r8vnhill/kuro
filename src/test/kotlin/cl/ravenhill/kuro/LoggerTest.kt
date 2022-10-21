@@ -57,7 +57,9 @@ class LoggerTest : WordSpec({
                 val out = tapSystemOut {
                     logger.debug { message }
                 }
-                out shouldMatch "\\[${currentThread().name}] DEBUG $name - $message".toRegex()
+                val dateRegex = "[0-9]{4}-(0[0-9]|1[0-2])-(3[0-1]|[0-2][0-9])"
+                val timeRegex = "(2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9].[0-9]*{9}"
+                out shouldMatch "${dateRegex}T$timeRegex \\[${currentThread().name}] DEBUG $name - $message".toRegex()
             }
         }
     }

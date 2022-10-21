@@ -1,6 +1,9 @@
 package cl.ravenhill.kuro.logging
 
 import cl.ravenhill.kuro.channels.StdoutChannel
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import java.util.Objects
 
 /** Entity that logs messages to an output stream.  */
@@ -9,7 +12,11 @@ class Logger private constructor(private val name: String) {
 
     /** Logs a message at the DEBUG level.  */
     fun debug(message: () -> String) =
-        outputStream.write("[${Thread.currentThread().name}] DEBUG $name - ${message()}")
+        outputStream.write(
+            "${
+                Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+            } [${Thread.currentThread().name}] DEBUG $name - ${message()}"
+        )
 
     override fun toString() = "Logger { name: '$name' }"
 
